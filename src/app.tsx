@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { CreateRoom } from "./pages/create-room";
 import { Room } from "./pages/room";
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
 export function App() {
   return (
@@ -11,7 +11,7 @@ export function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<CreateRoom />} index />
-          <Route element={<Room />} path="/room" />
+          <Route element={<Room />} path="/room/:id" />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

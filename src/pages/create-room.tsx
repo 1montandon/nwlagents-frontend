@@ -2,11 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 
 type GetRoomsAPIResponse = Array<{
-  id: string
-  nome: string
-}>
-
-
+  id: string;
+  name: string;
+}>;
 
 export function CreateRoom() {
   const { data, isLoading } = useQuery({
@@ -20,15 +18,16 @@ export function CreateRoom() {
   });
   return (
     <div>
-      <div>Create Room </div>
-
       {isLoading && <p>Carregando...</p>}
-      <div>{data && data.map(room => {
-        
-      })}</div>
-      <Link className="underline" to="/room">
-        Acessar sala
-      </Link>
+      <div className="flex flex-col gap-1">
+        {data?.map((room) => {
+          return (
+            <Link key={room.id} to={`/room/${room.id}`}>
+              {room.name}
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 }
