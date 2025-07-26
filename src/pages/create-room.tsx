@@ -1,32 +1,72 @@
-import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
+import { useQuery } from '@tanstack/react-query';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { Badge } from '../components/ui/badge';
 
 type GetRoomsAPIResponse = Array<{
   id: string;
   name: string;
+  questionsCount: number;
+  createdAt: string;
 }>;
 
 export function CreateRoom() {
   const { data, isLoading } = useQuery({
-    queryKey: ["get-rooms"],
+    queryKey: ['get-rooms'],
     queryFn: async () => {
-      const response = await fetch("http://localhost:3333/rooms");
+      const response = await fetch('http://localhost:3333/rooms');
       const result: GetRoomsAPIResponse = await response.json();
 
       return result;
     },
   });
   return (
-    <div>
-      {isLoading && <p>Carregando...</p>}
-      <div className="flex flex-col gap-1">
-        {data?.map((room) => {
-          return (
-            <Link key={room.id} to={`/room/${room.id}`}>
-              {room.name}
-            </Link>
-          );
-        })}
+    <div className="min-h-screen px-4 py-8 ">
+      <div className="mx-auto max-w-4xl">
+        <div className="grid-col-2 grid items-start gap-8" />
+        <Card>
+          <CardHeader>
+            <CardTitle>Salas Recentes</CardTitle>
+            <CardDescription>
+              Acesso rapido as salas criadas recentemente
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="flex flex-col gap-3">
+            {data?.map((room) => {
+              return (
+                <Link
+                  className="flex justify-between rounded-lg border p-3 hover:bg-accent"
+                  key={room.id}
+                  to={`/rooms/${room.id}`}
+                >
+                  <div className="flex flex-col gap-1">
+                    <h3 className="font-medium ">{room.name}</h3>
+                    <div className="flex items-center gap-2">
+                      <Badge className="text-xs" variant="secundary">
+                        {room.questionsCount} perguntas
+                      </Badge>
+                      <Badge className="text-xs" variant="secundary">
+                        {room.createdAt}
+                      </Badge>
+                    </div>
+                  </div>
+
+                  <span className="flex items-center gap-1 text-sm">
+                    Entrar
+                    <ArrowRight className="size-3" />
+                  </span>
+                </Link>
+              );
+            })}
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
