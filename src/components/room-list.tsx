@@ -23,7 +23,7 @@ export function RoomList() {
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
         {isLoading && <p className="text-muted text-sm">Carregando salas...</p>}
-        {data?.map((room) => {
+        { data?.map((room) => {
           return (
             <Link
               className="flex justify-between rounded-lg border p-3 hover:bg-accent/50"
