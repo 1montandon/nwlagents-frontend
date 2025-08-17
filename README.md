@@ -1,240 +1,237 @@
-# NLW Agents - Frontend 🤖
+# NLW Agents - Frontend 🎨
 
-## Description
+[![React](https://img.shields.io/badge/React-19+-blue.svg)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8+-blue.svg)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-7.0+-purple.svg)](https://vitejs.dev/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.1+-teal.svg)](https://tailwindcss.com/)
 
-**NLW Agents Frontend** is a modern React-based web application developed during **Next Level Week (NLW) Agents** by Rocketseat. This interactive platform allows users to create virtual rooms where they can ask questions and receive AI-powered responses. The application features voice recording capabilities and real-time question management, providing an intuitive interface for AI-assisted conversations.
+Uma aplicação frontend moderna desenvolvida durante a **20ª Edição do NLW (Next Level Week)** da Rocketseat. Interface intuitiva para interação com agentes de IA, focada em transcrição de áudio e Q&A inteligente.
 
-The project demonstrates modern frontend development practices with TypeScript, React 19, and a comprehensive set of tools for building scalable and maintainable web applications.
+## 📋 Descrição
 
-## Features ✨
+O NLW Agents Frontend é uma Single Page Application (SPA) que oferece uma experiência fluida para:
 
-- 🏠 **Room Management**: Create and manage virtual question rooms
-- 🎙️ **Voice Recording**: Record audio questions directly in the browser
-- ❓ **Question System**: Submit and view questions with AI responses
-- 📱 **Responsive Design**: Mobile-first design with Tailwind CSS
-- 🎨 **Modern UI Components**: Built with Radix UI primitives
-- ⚡ **Real-time Updates**: Powered by React Query for efficient data management
-- 🔄 **Form Validation**: Robust form handling with React Hook Form and Zod
-- 🎯 **Type Safety**: Full TypeScript implementation
+- **Criação e gerenciamento de salas** temáticas
+- **Gravação e upload de áudios** diretamente do navegador
+- **Interface de perguntas e respostas** alimentada por IA
+- **Visualização de transcrições** em tempo real
+- **Design responsivo** e acessível
 
-## Technologies Used 🛠️
+## 🛠 Tecnologias Utilizadas
 
-### Core Technologies
+| Tecnologia           | Versão | Uso                              |
+| -------------------- | ------- | -------------------------------- |
+| **React**            | 19+     | Biblioteca de interface          |
+| **TypeScript**       | 5.8+    | Linguagem de programação       |
+| **Vite**             | 7.0+    | Build tool e dev server          |
+| **TailwindCSS**      | 4.1+    | Framework CSS utilitário        |
+| **React Router DOM** | 7.6+    | Roteamento SPA                   |
+| **React Hook Form**  | 7.61+   | Gerenciamento de formulários    |
+| **TanStack Query**   | 5.83+   | Gerenciamento de estado servidor |
+| **Radix UI**         | -       | Componentes acessíveis          |
+| **Zod**              | 4.0+    | Validação de schemas           |
+| **Day.js**           | 1.11+   | Manipulação de datas           |
+| **Lucide React**     | 0.525+  | Ícones modernos                 |
 
-- **React 19** - Frontend framework
-- **TypeScript** - Type-safe JavaScript
-- **Vite** - Build tool and development server
-- **React Router DOM** - Client-side routing
-
-### UI & Styling
-
-- **Tailwind CSS** - Utility-first CSS framework
-- **Radix UI** - Headless UI components
-- **Lucide React** - Icon library
-- **Class Variance Authority** - Component variant management
-
-### State Management & Data Fetching
-
-- **TanStack React Query** - Server state management
-- **React Hook Form** - Form state management
-- **Zod** - Schema validation
-
-### Development Tools
-
-- **Biome** - Linter and formatter
-- **Day.js** - Date manipulation library
-- **Ultracite** - Development utilities
-
-## Installation 📦
-
-### Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-- **Node.js** (version 18 or higher)
-- **npm** or **yarn** package manager
-- A modern web browser with MediaRecorder API support
-
-### Step-by-step Setup
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/1montandon/nwlagents-frontend.git
-   cd nwlagents-frontend
-   ```
-
-2. **Install dependencies:**
-
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-
-3. **Start the development server:**
-
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
-
-4. **Open your browser:**
-   Navigate to `http://localhost:5173` to view the application.
-
-## Usage 🚀
-
-### Creating a Room
-
-1. **Access the Home Page**: Open the application in your browser
-2. **Fill the Room Form**:
-   - Enter a room name (minimum 3 characters)
-   - Add an optional description
-   - Click "Criar Sala" (Create Room)
-3. **View Active Rooms**: All created rooms appear in the room list
-
-### Asking Questions
-
-1. **Enter a Room**: Click on any room from the list
-2. **Submit Questions**: Use the question form to ask anything
-3. **View Responses**: Questions and AI responses appear in real-time
-
-### Recording Audio
-
-1. **Navigate to Audio Page**: Click the "Gravar Áudio" (Record Audio) button in any room
-2. **Start Recording**: Click the record button to begin voice capture
-3. **Stop Recording**: Click stop when finished
-4. **Upload**: Audio is automatically processed and sent to the backend
-
-### Navigation
-
-- **Home Button**: Return to the main page from any room
-- **Room Navigation**: Switch between different rooms
-- **Audio Recording**: Access voice recording features
-
-## Configuration ⚙️
-
-### Environment Variables
-
-Create a `.env.local` file in the root directory for any environment-specific configurations:
-
-```env
-# API Base URL (if different from localhost:3333)
-VITE_API_URL=http://localhost:3333
-
-# Other environment variables as needed
-```
-
-### Backend Integration
-
-This frontend is designed to work with the NLW Agents backend API. Ensure your backend server is running on `http://localhost:3333` or update the API endpoints in the HTTP service files located in `src/http/`.
-
-### Browser Requirements
-
-- **Modern Browser**: Chrome, Firefox, Safari, or Edge (latest versions)
-- **MediaRecorder API**: Required for audio recording functionality
-- **JavaScript Enabled**: Essential for React application functionality
-
-## Project Structure 📁
+## 📁 Estrutura do Projeto
 
 ```
-src/
-├── components/          # Reusable UI components
-│   ├── ui/             # Base UI components (buttons, cards, forms)
-│   ├── create-room-formx.tsx
-│   ├── question-form.tsx
-│   └── ...
-├── http/               # API integration layer
-│   ├── types/          # TypeScript type definitions
-│   └── use-*.ts        # React Query hooks
-├── lib/                # Utility functions
-├── pages/              # Route components
-│   ├── create-room.tsx
-│   ├── room.tsx
-│   └── record-room-audio.tsx
-└── app.tsx             # Main application component
+nwlagents-frontend/
+├── 📄 package.json                # Dependências e scripts
+├── 📄 vite.config.ts              # Configuração do Vite
+├── 📄 tsconfig.json               # Configuração TypeScript
+├── 📄 components.json             # Configuração shadcn/ui
+├── 📄 index.html                  # Template HTML
+├── 🎨 src/
+│   ├── 📄 main.tsx                # Entry point da aplicação
+│   ├── 📄 app.tsx                 # Componente raiz
+│   ├── 📄 index.css               # Estilos globais
+│   ├── 🧩 components/
+│   │   ├── create-room-form.tsx   # Formulário de criação
+│   │   ├── question-form.tsx      # Formulário de perguntas
+│   │   ├── question-item.tsx      # Item de pergunta
+│   │   ├── question-list.tsx      # Lista de perguntas
+│   │   ├── room-list.tsx          # Lista de salas
+│   │   └── ui/                    # Componentes base (shadcn/ui)
+│   ├── 🌐 http/
+│   │   ├── use-create-question.ts # Hook para perguntas
+│   │   ├── use-create-room.ts     # Hook para salas
+│   │   ├── use-room-questions.ts  # Hook para listar Q&A
+│   │   ├── use-rooms.ts           # Hook para listar salas
+│   │   └── types/                 # Tipagens das requisições
+│   ├── 🔧 lib/
+│   │   ├── utils.ts               # Utilitários gerais
+│   │   └── dayjs.ts               # Configuração Day.js
+│   └── 📱 pages/
+│       ├── create-room.tsx        # Página inicial
+│       ├── room.tsx               # Página da sala
+│       └── record-room-audio.tsx  # Página de gravação
 ```
 
-## Contributing 🤝
+## ⚙️ Pré-requisitos
 
-We welcome contributions to the NLW Agents Frontend! Here's how you can help:
+Antes de começar, certifique-se de ter instalado:
 
-### Reporting Bugs
+- **Node.js** (versão 18 ou superior)
+- **npm** ou **yarn**
+- **Git**
+- O **backend do projeto** rodando na porta 3333
 
-1. **Search Existing Issues**: Check if the bug has already been reported
-2. **Create Detailed Report**: Include steps to reproduce, expected behavior, and screenshots
-3. **Use Issue Templates**: Follow the provided templates for consistency
+## 🚀 Configuração e Setup
 
-### Suggesting Features
+### 1. Clone o repositório
 
-1. **Check Roadmap**: Review existing feature requests
-2. **Provide Context**: Explain the use case and potential impact
-3. **Be Specific**: Include mockups or detailed descriptions when possible
+```bash
+git clone <url-do-repositorio>
+cd nwlagents-frontend
+```
 
-### Submitting Pull Requests
+### 2. Instale as dependências
 
-1. **Fork the Repository**: Create your own copy of the project
-2. **Create Feature Branch**:
-   ```bash
-   git checkout -b feature/amazing-feature
-   ```
-3. **Make Changes**: Implement your feature or fix
-4. **Follow Code Standards**:
-   - Use TypeScript for type safety
-   - Follow existing code style
-   - Run linting: `npm run lint`
-5. **Test Thoroughly**: Ensure all functionality works as expected
-6. **Commit Changes**: Use conventional commit messages
-7. **Push to Branch**:
-   ```bash
-   git push origin feature/amazing-feature
-   ```
-8. **Open Pull Request**: Provide clear description of changes
+```bash
+npm install
+# ou
+yarn install
+```
 
-### Development Guidelines
+### 3. Configure o ambiente
 
-- **Code Style**: Follow the existing patterns and use Biome for linting
-- **TypeScript**: Maintain strict type checking
-- **Components**: Create reusable, well-documented components
-- **Testing**: Add tests for new features when possible
-- **Performance**: Consider performance implications of changes
+Certifique-se de que o backend esteja rodando em `http://localhost:3333`
 
-## License 📄
+### 4. Inicie o servidor de desenvolvimento
 
-This project was developed as part of the **Next Level Week (NLW) Agents** educational event by **Rocketseat**.
+```bash
+npm run dev
+# ou
+yarn dev
+```
 
-The code is available for educational purposes and personal learning. Please check with Rocketseat for specific licensing terms regarding commercial use or redistribution.
+A aplicação estará disponível em `http://localhost:5173`
 
-## Contact/Support 💬
+### 5. Build para produção
 
-### Getting Help
+```bash
+npm run build
+# ou
+yarn build
+```
 
-- **Issues**: Report bugs or request features via [GitHub Issues](https://github.com/1montandon/nwlagents-frontend/issues)
-- **Discussions**: Join community discussions in the repository
-- **Documentation**: Check this README and inline code comments
+## 🎯 Principais Funcionalidades
 
-### Rocketseat Community
+### 🏠 Página Inicial - Criação de Salas
 
-- **Discord**: Join the [Rocketseat Discord community](https://discord.gg/rocketseat)
-- **Website**: Visit [Rocketseat.com.br](https://rocketseat.com.br)
-- **Social Media**: Follow [@rocketseat](https://twitter.com/rocketseat) for updates
+- **Formulário intuitivo** para criação de novas salas
+- **Validação em tempo real** com mensagens claras
+- **Lista de salas existentes** com navegação rápida
 
-### Project Maintainer
+### 🏢 Página da Sala
 
-- **GitHub**: [@1montandon](https://github.com/1montandon)
-- **Email**: Contact through GitHub for project-related inquiries
+- **Visualização de perguntas e respostas**
+- **Formulário para novas perguntas**
+- **Botão para gravação de áudio**
+- **Layout responsivo** para mobile e desktop
+
+### 🎵 Gravação de Áudio
+
+- **Interface de gravação** usando Web Audio API
+- **Controles intuitivos** (play, pause, stop)
+- **Upload automático** após gravação
+- **Feedback visual** do processo
+
+### 💬 Sistema de Q&A
+
+- **Perguntas contextuais** baseadas no conteúdo
+- **Respostas geradas por IA** do backend
+- **Histórico organizado** por data/hora
+- **Interface conversacional**
+
+## 🎨 Sistema de Design
+
+### Componentes UI (shadcn/ui)
+
+```tsx
+// Exemplo de uso dos componentes
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+
+function ExemploComponente() {
+  return (
+    <Card className="p-6">
+      <Input placeholder="Digite sua pergunta..." />
+      <Button className="mt-4">Enviar</Button>
+    </Card>
+  )
+}
+```
+
+### Esquema de Cores TailwindCSS
+
+- **Primary**: Tons de azul para CTAs
+- **Secondary**: Cinzas para texto secundário
+- **Success**: Verde para feedbacks positivos
+- **Danger**: Vermelho para erros e alertas
+
+## 🔄 Gerenciamento de Estado
+
+### TanStack Query (React Query)
+
+```tsx
+// Exemplo de hook customizado
+export function useRooms() {
+  return useQuery({
+    queryKey: ['rooms'],
+    queryFn: getRooms,
+    staleTime: 1000 * 60 * 5, // 5 minutos
+  })
+}
+```
+
+### React Hook Form + Zod
+
+```tsx
+// Exemplo de formulário validado
+const schema = z.object({
+  question: z.string().min(1, "Pergunta é obrigatória")
+})
+
+function QuestionForm() {
+  const form = useForm({
+    resolver: zodResolver(schema)
+  })
+  
+  // ...resto do componente
+}
+```
+
+## 📱 Rotas da Aplicação
+
+| Rota                  | Componente        | Descrição                          |
+| --------------------- | ----------------- | ------------------------------------ |
+| `/`                   | `CreateRoom`      | Página inicial - criar/listar salas |
+| `/room/:roomId`       | `Room`            | Página da sala com Q&A              |
+| `/room/:roomId/audio` | `RecordRoomAudio` | Interface de gravação              |
+
+## 🧪 Scripts Disponíveis
+
+| Script            | Descrição                        |
+| ----------------- | ---------------------------------- |
+| `npm run dev`     | Inicia servidor de desenvolvimento |
+| `npm run build`   | Build otimizado para produção    |
+| `npm run preview` | Preview do build de produção     |
+
+## 📄 Licença
+
+Este projeto foi desenvolvido durante a **20ª Edição do NLW** da [Rocketseat](https://rocketseat.com.br) e é livre para uso educacional e pessoal.
+
+### Padrões de Código
+
+- Use **TypeScript** para tipagem estática
+- Siga as convenções do **ESLint/Biome**
+- Componentes em **PascalCase**
+- Hooks customizados com prefixo **"use"**
 
 ---
 
-## Acknowledgments 🙏
+**Desenvolvido com ❤️ durante o NLW Agents da Rocketseat**
 
-- **Rocketseat Team**: For creating the NLW Agents event and educational content
-- **Community**: Fellow developers who participated in NLW Agents
-- **Open Source**: All the amazing libraries and tools that make this project possible
-
----
-
-**Built with ❤️ during Next Level Week Agents by Rocketseat**
-
-_Ready to take your development skills to the next level? Join the next NLW event at [Rocketseat](https://rocketseat.com.br)!_
