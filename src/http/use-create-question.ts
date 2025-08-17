@@ -46,20 +46,29 @@ export function UseCreateQuestion(roomId: string) {
       return { newQuestion, questions };
     },
 
-     onSuccess(_data, _variables, context){
-        queryClient.setQueryData<GetRoomQuestionsResponse>(
-          ['get-questions', roomId],
-          questions => {
-            if (!questions){
-              return questions 
-            }
-            if(context.questions){
-              return questions 
-            }
-            
+    onSuccess(data, _variables, context) {
+      queryClient.setQueryData<GetRoomQuestionsResponse>(
+        ['get-questions', roomId],
+        (questions) => {
+          if (!questions) {
+            return questions;
           }
-        );
-     },
+          if (context.questions) {
+            return questions;
+          }
+          return questions.map((question) => {
+            if (question.id === context.newQuestion.id) {
+              return {
+                ...context.newQuestion,
+                id: data.questionId,
+                answer: data.answer,
+              };
+            }
+            return question;
+          });
+        }
+      );
+    },
 
     onError(_error, _variables, context) {
       if (context?.questions) {
